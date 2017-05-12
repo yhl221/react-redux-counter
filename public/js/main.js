@@ -1,12 +1,14 @@
+import React from 'react'
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import App from './containers/count'
+import configureStore from './store/configureStore'
 
-require("./../css/style.css");
-import React, {Component} from 'react';
-import {render} from "react-dom";
+const store = configureStore();
 
-class HelloMessage extends React.Component {
-
-    render() {
-        return <div>Hello</div>;
-    }
-}
-render(<HelloMessage />, document.getElementById('app'));
+render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('app')
+);
